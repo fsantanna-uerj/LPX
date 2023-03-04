@@ -1,0 +1,21 @@
+func Quadrado () {
+    val X = @[
+        dir   = :baixo,
+        baixo = :esq,
+        esq   = :cima,
+        cima  = :dir,
+    ]
+    val f = func (it :Iterator) {
+        if it.i.0 < 10 {
+            set it.i.0 = it.i.0 + 1
+        } else {
+            set it.i = [1,it.v[it.i.1]]
+        }
+        it.i
+    }
+    [move(f), move(X), [0,:dir]]
+}
+
+loop in Quadrado(), c {
+    println(c)
+}
