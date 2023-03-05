@@ -1,26 +1,23 @@
-local fs = {
-    'aaa',
-    {
-        'yyy',
-        'zzz',
-    },
-    'bbb'
-}
+function Quadrado ()
+    local X = {
+        dir   = "baixo",
+        baixo = "esq",
+        esq   = "cima",
+        cima  = "dir",
+    }
 
-
-function Caracteres (str)
-    local f = function (s,i)
-        if i <= string.len(str) then
-            local c = string.sub(str,i,i)
-            return i+1, c
+    local f = function (x, t)
+        local n, d = table.unpack(t)
+        if n < 10 then
+            return {n+1, d}
         else
-            return nil
+            return {1, x[d]}
         end
-
     end
-    return f, str, 1
+
+    return f, X, {0,"dir"}
 end
 
-for i,c in Caracteres("ola mundo") do
-    print(c)
+for d in Quadrado() do
+    print(table.unpack(d))
 end
