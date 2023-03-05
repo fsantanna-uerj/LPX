@@ -30,5 +30,5 @@ a = [
     "bbb"
 ]
 
-for v in Arvore(a):
-    print(v)
+for f in Arvore(a):
+    print(f)
