@@ -13,3 +13,22 @@ end
 for i,v in coroutine.wrap(f) do
     print(i,v)
 end
+
+print("-=-=-=-")
+
+it = coroutine.wrap(f)
+print(it)
+print(it())
+print(it())
+print(it())
+print(it())
+--print(it())
+
+print("-=-=-=-")
+
+co = coroutine.create(f)
+print(coroutine.resume(co))
+print(coroutine.resume(co))
+print(coroutine.resume(co))
+print(coroutine.resume(co))
+--print(coroutine.resume(co))
