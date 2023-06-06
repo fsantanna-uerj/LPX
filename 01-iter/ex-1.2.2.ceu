@@ -1,4 +1,4 @@
-func Quadrado () {
+func Quadrado (tp) {
     val X = @[
         dir   = :baixo,
         baixo = :esq,
@@ -9,11 +9,15 @@ func Quadrado () {
         if it.i.0 < 10 {
             set it.i.0 = it.i.0 + 1
         } else {
-            set it.i = [1,it.v[it.i.1]]
+            set it.i = [1,it.s[it.i.1]]
         }
-        it.i
+        ifs it.tp {
+            == :idx -> it.i.0
+            == :val -> it.i.1
+            else    -> it.i
+        }
     }
-    [move(f), move(X), [0,:dir]]
+    [move(f), move(X), tp or :val, [0,:dir]]
 }
 
 loop in Quadrado(), c {

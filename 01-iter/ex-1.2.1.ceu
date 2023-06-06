@@ -1,6 +1,6 @@
 func Caracteres_next (it :Iterator) {
-    if it.i < #it.v {
-        val c = it.v[it.i]
+    if it.i < #it.s {
+        val c = it.s[it.i]
         set it.i = it.i + 1
         c
     } else {
@@ -9,7 +9,7 @@ func Caracteres_next (it :Iterator) {
 }
 
 func Caracteres (str) {
-    [Caracteres_next, str, 0]
+    [Caracteres_next, str, nil, 0]
 }
 
 loop in Caracteres("ola mundo"), c {
