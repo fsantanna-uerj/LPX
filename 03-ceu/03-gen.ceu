@@ -1,0 +1,33 @@
+coro F () {
+    yield(1)
+    yield(2)
+    yield(3)
+}
+
+val f = coroutine(F)
+loop in iter(f), v {
+    println(v)
+}
+
+println("-=-=-=-")
+
+println(F, f, iter(f))
+
+println("-=-=-=-")
+
+val it = iter(coroutine(F))
+println(it)
+println(it[0](it))
+println(it[0](it))
+println(it[0](it))
+println(it[0](it))
+
+println("-=-=-=-")
+
+val f' = coroutine(F)
+println(f')
+println(resume f'())
+println(resume f'())
+println(resume f'())
+println(resume f'())
+println(resume f'())
