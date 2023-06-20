@@ -1,0 +1,14 @@
+coro F () {
+    defer {
+        println(:a)
+    }
+    println(:b)
+    yield()
+}
+
+var x
+do {
+    val f = coroutine(F)
+    resume f()
+    set x = f
+}
