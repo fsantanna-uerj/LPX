@@ -1,0 +1,26 @@
+coro F (v1) {
+    val v2 = yield(10)
+    val v3 = yield(20)
+    30
+}
+
+val f = coroutine(F)
+val x1 = resume f(1)
+val x2 = resume f(2)
+val x3 = resume f(3)
+println(x1, x2, x3)
+
+println("-=-=-=-")
+
+task T (v1) {
+    await true
+    val v2 = evt
+    await true
+    val v3 = evt
+    println(v1, v2, v3)
+}
+
+val t1 = spawn T(1)
+val t2 = spawn T(1)
+broadcast 2
+broadcast 3

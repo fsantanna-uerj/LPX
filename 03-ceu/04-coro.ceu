@@ -1,0 +1,13 @@
+coro F (v1) {
+    val v2 = yield(10)
+    val v3 = yield(20)
+    println(:F, v1, v2, v3)
+    30
+}
+
+val f = coroutine(F)
+val x1 = resume f(1)
+val x2 = resume f(2)
+val x3 = resume f(3)
+println(:M, x1,x2,x3)
+val x4 = resume f(3)

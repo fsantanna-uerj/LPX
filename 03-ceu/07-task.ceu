@@ -1,0 +1,10 @@
+task T (v) {
+    loop {
+        await evt > v
+        println(evt)
+    }
+}
+
+val t = spawn T(5)
+broadcast 3
+broadcast 7
