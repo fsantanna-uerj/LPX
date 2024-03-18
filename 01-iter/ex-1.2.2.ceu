@@ -1,25 +1,24 @@
 func Quadrado (tp) {
     val X = @[
-        dir   = :baixo,
-        baixo = :esq,
-        esq   = :cima,
-        cima  = :dir,
+        (:dir,   :baixo),
+        (:baixo, :esq),
+        (:esq,   :cima),
+        (:cima,  :dir),
     ]
-    val f = func (it :Iterator) {
-        if it.i.0 < 10 {
-            set it.i.0 = it.i.0 + 1
+    val f = func (it) {
+        val i = it[1]
+        val d = it[2]
+        if i < 10 {
+            set it[1] = i + 1
         } else {
-            set it.i = [1,it.s[it.i.1]]
+            set it[1] = 1
+            set it[2] = X[d]
         }
-        ifs it.tp {
-            == :idx -> it.i.0
-            == :val -> it.i.1
-            else    -> it.i
-        }
+        d
     }
-    [move(f), move(X), tp or :val, [0,:dir]]
+    :Iterator [f, 1, :dir]
 }
 
-loop in Quadrado(), c {
-    println(c)
+loop d in Quadrado() {
+    println(d)
 }

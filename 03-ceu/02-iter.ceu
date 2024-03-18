@@ -1,10 +1,10 @@
-loop in iter([1,2,3]), v {
+loop v in [1,2,3] {
     println(v)
 }
 
 println("-=-=-=-")
 
-val it1 = iter([10,20,30])
+val it1 = to-iter([10,20,30])
 println(it1)
 println(it1[0](it1))
 println(it1[0](it1))
@@ -14,7 +14,7 @@ println(it1[0](it1))
 
 println("-=-=-=-")
 
-val it2 :Iterator = iter([10,20,30])
+val it2 :Iterator = to-iter([10,20,30])
 println(it2.f(it2))
 println(it2.f(it2))
 println(it2.f(it2))

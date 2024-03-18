@@ -5,17 +5,17 @@ coro F () {
 }
 
 val f = coroutine(F)
-loop in iter(f), v {
+loop v in f {
     println(v)
 }
 
 println("-=-=-=-")
 
-println(F, f, iter(f))
+println(F, f, to-iter(f))
 
 println("-=-=-=-")
 
-val it = iter(coroutine(F))
+val it = to-iter(coroutine(F))
 println(it)
 println(it[0](it))
 println(it[0](it))

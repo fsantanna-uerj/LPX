@@ -9,7 +9,7 @@ task Line (pos:XY, vel:XY) {
             pico-output-draw-pixel(pos)
         }
     } with {
-        every 50:ms {
+        every :50:ms {
             set pos.x = pos.x + vel.x
             set pos.y = pos.y + vel.y
         }
@@ -19,7 +19,7 @@ task Line (pos:XY, vel:XY) {
 spawn {
     spawn Line ([-25,25],[1,-1])
     spawn Line ([-25,-25],[1,1])
-    await 5:s
+    await(:5:s)
     pico-quit()
 }
 

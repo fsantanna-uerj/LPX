@@ -1,10 +1,11 @@
 task T (v) {
     loop {
-        await evt > v
-        println(evt)
+        await(,it > v) {
+            println(it)
+        }
     }
 }
 
 val t = spawn T(5)
-broadcast 3
-broadcast 7
+broadcast(3)
+broadcast(7)
